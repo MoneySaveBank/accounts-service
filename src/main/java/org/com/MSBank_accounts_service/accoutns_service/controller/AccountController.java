@@ -26,6 +26,8 @@ public class AccountController {
 
         System.out.println(authorization);
         System.out.println(redisTemplate.opsForValue().get(authorization));
+        String customerInRedis = redisTemplate.opsForValue().get("token:" + authorization);
+        System.out.println(customerInRedis);
         return accountService.getCustomerAccounts(customerNumber);
     }
 
